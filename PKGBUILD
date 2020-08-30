@@ -5,8 +5,8 @@ url='https://wiki.ros.org/python_orocos_kdl'
 
 pkgname='ros-melodic-python-orocos-kdl'
 pkgver='1.4.0'
-arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
-pkgrel=4
+arch=('any')
+pkgrel=3
 license=('LGPL')
 
 ros_makedepends=(
@@ -33,15 +33,8 @@ depends=(
 )
 
 _dir="orocos_kinematics_dynamics-${pkgver}/python_orocos_kdl"
-source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/orocos/orocos_kinematics_dynamics/archive/v${pkgver}.tar.gz"
-sip.patch)
-sha256sums=('05b93e759923684dc07433ccae1e476d158d89b3c2be5079c20062406da7b4dd'
-            'ec9e21e65c8ea70b5f9e3f651b1d36c0e79be63a008acd0f7d6d3b275c7dc241')
-
-prepare() {
-  cd "${srcdir}/${_dir}"
-  patch --forward --strip=0 --input="${srcdir}/sip.patch"
-}
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/orocos/orocos_kinematics_dynamics/archive/v${pkgver}.tar.gz")
+sha256sums=('05b93e759923684dc07433ccae1e476d158d89b3c2be5079c20062406da7b4dd')
 
 build() {
 	# Use ROS environment variables.
